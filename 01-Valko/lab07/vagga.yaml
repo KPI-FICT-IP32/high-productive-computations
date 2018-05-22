@@ -1,0 +1,24 @@
+containers:
+  intel-tbb:
+    setup:
+      - !Alpine v3.7
+      - !Repo edge/testing
+      - !Install
+        - gcc
+        - g++
+        - libstdc++
+        - libtbb
+        - libtbb-dev
+        - make
+
+commands:
+  compile: !Command
+    description: compile app
+    container: intel-tbb
+    run: make release
+
+  run: !Command
+    prerequisites: [compile]
+    description: run app for integrating function
+    container: intel-tbb
+    run: ./app
