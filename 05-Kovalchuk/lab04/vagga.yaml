@@ -1,0 +1,16 @@
+containers:
+  app-mpi:
+    setup:
+      - !Alpine v3.7
+      - !Repo edge/testing
+      - !Install
+        - gcc
+        - g++
+        - make
+        - openmpi
+        - openmpi-dev
+
+commands:
+  sh: !Command
+    container: app-mpi
+    run: sh
