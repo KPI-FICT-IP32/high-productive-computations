@@ -9,16 +9,48 @@ containers:
         - libstdc++
         - libtbb
         - libtbb-dev
+        - libtbb-debug
         - make
 
 commands:
   compile: !Command
     description: compile app
+    options: |
+      Usage:
+        vagga compile [--debug|--release] [options]
+
+      Arguments:
+        --debug          Link app to the debug version of Intel TBB, do no optimizations
+        --release        Link app to release version of Intel TBB, do optimizations (default)
     container: intel-tbb
-    run: make release
+    run: |
+      if [ "$VAGGACLI_DEBUG" = "--debug" ]; then
+        make debug
+      else
+        make release
+      fi
+
+  clean: !Command
+    description: clean build artifacts
+    container: intel-tbb
+    run: |
+        make clean
 
   run: !Command
-    prerequisites: [compile]
+    options: |
+      Usage:
+        vagga run [--debug|--release] [options]
+
+      Arguments:
+        --debug          Link app to the debug version of Intel TBB, do no optimizations
+        --release        Link app to release version of Intel TBB, do optimizations (default)
     description: run app for integrating function
     container: intel-tbb
-    run: ./app
+    run: |
+        if [ "$VAGGACLI_DEBUG" = "--debug" ]; then
+            make debug
+            build/app.debug
+        else
+            make release
+            build/app.release
+        fi
