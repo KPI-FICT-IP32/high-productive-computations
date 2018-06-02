@@ -1,0 +1,25 @@
+
+containers:
+  mpi:
+    setup:
+      - !Alpine v3.7
+      - !Repo edge/testing
+      - !Install
+        - gcc
+        - g++
+        - make
+        - openmpi
+        - openmpi-dev
+        - wget
+      - !Sh |
+         wget http://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz
+         tar xfz mpich-3.2.tar.gz
+         cd mpich-3.2
+         ./configure --disable-fortran
+         make && make install
+         rm -rf /tmp/mpich-src
+
+commands:
+  sh: !Command
+    container: mpi
+    run: sh
