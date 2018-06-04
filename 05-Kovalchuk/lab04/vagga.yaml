@@ -1,0 +1,36 @@
+containers:
+  mpi:
+    setup:
+      - !Alpine v3.7
+      - !Repo edge/testing
+      - !Install
+        - make
+        - gcc
+        - musl-dev
+        - openmpi
+        - openmpi-dev
+        - openssh
+
+commands:
+  clean: !Command
+    description: clean build artifacts
+    container: mpi
+    run: make clean 
+
+  compile: !Command
+    prerequisites: [clean]
+    description: compile app
+    container: mpi
+    run: make
+
+  run: !Command
+    description: run app
+    container: mpi
+    options: |
+      Usage:
+        vagga run [--nodes=<nodes>] [options]
+      Options:
+        -n, --nodes <nodes>  Number of processes to run. [default: 4]
+
+    run: |
+      make run NODES=${VAGGAOPT_NODES:-4}

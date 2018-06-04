@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/1aef85b7/
+LU_H	src/lu.h	/^#define LU_H$/;"	d
+MIO_H	src/mio.h	/^#define MIO_H$/;"	d
+MPI_DATA_TAG	src/lu.c	/^#define MPI_DATA_TAG /;"	d	file:
+MPI_ROOT_PS	src/lu.c	/^#define MPI_ROOT_PS /;"	d	file:
+MPI_TAG_DATA	src/main.c	/^#define MPI_TAG_DATA /;"	d	file:
+MPI_TAG_HEADER	src/main.c	/^#define MPI_TAG_HEADER /;"	d	file:
+Matrix	src/mio.h	/^struct Matrix {$/;"	s
+Matrix	src/mio.h	/^typedef struct Matrix Matrix;$/;"	t	typeref:struct:Matrix
+Vector	src/mio.h	/^struct Vector {$/;"	s
+Vector	src/mio.h	/^typedef struct Vector Vector;$/;"	t	typeref:struct:Vector
+_BUFSIZE	src/mio.c	/^#define _BUFSIZE /;"	d	file:
+alloc_vector	src/mio.c	/^Vector *alloc_vector(Matrix *m) {$/;"	f	typeref:typename:Vector *
+calc_x	src/lu.c	/^double * calc_x(Matrix *m, double *y) {$/;"	f	typeref:typename:double *
+calc_y	src/lu.c	/^double *calc_y(Matrix *m, double *b) {$/;"	f	typeref:typename:double *
+data	src/mio.h	/^    double *data;$/;"	m	struct:Matrix	typeref:typename:double *
+data	src/mio.h	/^    double data[1];$/;"	m	struct:Vector	typeref:typename:double[1]
+get	src/mio.c	/^double get(Matrix *m, int r, int c) {$/;"	f	typeref:typename:double
+get_matrix	src/main.c	/^Matrix *get_matrix(char * filename, int rank, int world_size) {$/;"	f	typeref:typename:Matrix *
+height	src/mio.h	/^    int height;$/;"	m	struct:Matrix	typeref:typename:int
+lu	src/lu.c	/^void lu(Matrix * m, int rank, int world_size) {$/;"	f	typeref:typename:void
+main	src/main.c	/^int main(int argc, char **argv) {$/;"	f	typeref:typename:int
+print_matrix	src/mio.c	/^void print_matrix(Matrix *m) {$/;"	f	typeref:typename:void
+read_matrix	src/mio.c	/^Matrix *read_matrix(char *filename) {$/;"	f	typeref:typename:Matrix *
+read_vector	src/mio.c	/^double *read_vector(char * filename) {$/;"	f	typeref:typename:double *
+register_matrix_description	src/main.c	/^MPI_Datatype register_matrix_description() {$/;"	f	typeref:typename:MPI_Datatype
+register_vector	src/lu.c	/^MPI_Datatype register_vector(int size) {$/;"	f	typeref:typename:MPI_Datatype
+set	src/mio.c	/^void set(Matrix *m, int r, int c, double val) {$/;"	f	typeref:typename:void
+size	src/mio.h	/^    int size;$/;"	m	struct:Matrix	typeref:typename:int
+start_point	src/mio.h	/^    int start_point;$/;"	m	struct:Vector	typeref:typename:int
+width	src/mio.h	/^    int width;$/;"	m	struct:Matrix	typeref:typename:int
