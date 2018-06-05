@@ -63,7 +63,7 @@ void lu(Matrix * m, int rank, int world_size) {
                 }
             }
         }
-        print_matrix(m);
+        // print_matrix(m);
     } else {
         MPI_Send(m->data, matrix_size, MPI_DOUBLE, MPI_ROOT_PS,
                  MPI_DATA_TAG, MPI_COMM_WORLD);
